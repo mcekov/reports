@@ -1,0 +1,46 @@
+<div class="card card-body bg-light">
+    <div class="card-header mb-3">Редактиране на заявка</div>
+    <form action="/reports/{{report.id}}?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="form-group">
+            <label for="model">Модел на у-во</label>
+            <input type="text" name="model" class="form-control" value="{{report.model}}" required>
+        </div>
+        <div class="form-group">
+            <label for="sn">Сериен номер</label>
+            <input type="text" name="sn" class="form-control" value="{{report.sn}}" required>
+        </div>
+
+        <div class="form-group">
+            <label for="warranty">Гаранция - Да/Не</label>
+            <input type="text" name="warranty" class="form-control" value="{{report.warranty}}" required>
+        </div>
+
+        <div class=" form-group ">
+            <label for="defectText ">Дефект</label>
+            <textarea class="form-control " id="defectText" rows="3 " name="defectText" required>{{report.defect}}</textarea>
+        </div>
+        <div class="form-group ">
+            <label for="partsText ">Части</label>
+            <textarea class="form-control " id="partsText" rows="3 " name="partsText" required>{{report.parts}}</textarea>
+        </div>
+        <div class="form-group ">
+            <label for="client ">Клиент</label>
+            <input type="text " name="clientName" class="form-control" value="{{report.client}} " required>
+        </div>
+        <div class="form-group ">
+            <label for="reportDate ">Дата на заявка</label>
+            <input id="reportDate " name="reportDateNew" class="form-control" value="{{report.reportDate}} " required>
+        </div>
+        <div class="form-group ">
+            <label for="endDate ">Дата на предаване</label>
+            <input id="endDate " name="endDate " class="form-control" value="{{report.endReqDate}} " required>
+        </div>
+        <div class="form-group ">
+            <label for="notes ">Забележка</label>
+            <textarea class="form-control " id="notes" rows="5 " name="notes" required>{{report.notes}}</textarea>
+        </div>
+
+        <button class="btn btn-primary " type="submit">Изпрати</button>
+    </form>
+</div>

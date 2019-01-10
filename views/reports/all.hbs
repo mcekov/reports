@@ -1,0 +1,43 @@
+<div class="table table-striped w-auto">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Модел</th>
+                <th scope="col">Сериен номер</th>
+                <th scope="col">Гаранция</th>
+                <th scope="col">Клиент</th>
+                <th scope="col">Виж заявката</th>
+                <th scope="col">Редактиране</th>
+                <th scope="col">Изтриване</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each reports}}
+            <tr>
+                <th scope="row">#</th>
+                <td>{{model}}</td>
+                <td>{{sn}}</td>
+                <td>{{warranty}}</td>
+                <td>{{client}}</td>
+                <td>
+                    <a class="btn btn-dark" href="/report/{{id}}">Виж още</a>
+                </td>
+                <td>
+                    <a class="btn btn-dark" href="/reports/edit/{{id}}">Редакция</a>
+                </td>
+                <td>
+                    <form method="POST" action="/reports/{{id}}?_method=DELETE">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" class="btn btn-danger" value="Изтриване">
+                    </form>
+
+                </td>
+
+            </tr>
+            {{else}}
+            <p>Няма заявки в базата</p>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
